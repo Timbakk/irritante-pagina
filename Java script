@@ -1,0 +1,58 @@
+
+function openWin() {
+  for (var i = 0; i < 10; i++) {
+      setTimeout(() => {
+         window.open("http://127.0.0.1:5500/index.html");
+      }, 2);
+  }
+}
+openWin();
+
+
+
+function opentab() {
+  for (var i = 0; i < 10; i++) {
+      setTimeout(() => {
+         window.open("http://127.0.0.1:5500/index.html");
+      }, 5000);
+  }
+}
+opentab();
+
+
+document.getElementById('btnWin').addEventListener('click', this.openWin);
+
+function openWin(ev) {
+  console.log('open a popup window');
+  // let win = window.open(
+  //   'win.html',
+  //   null,
+  //   'popup,width=400,height=400,left=300,top=500, noopener'
+  // );
+  let win = window.open(
+    '',
+    null,
+    'popup,width=400,height=400,left=300,top=500' 
+  );
+  win.document.write(
+    '<html><head><title>Sample</title></head><body>Sample</body></html>'
+  );
+  // win.onload = () => {
+  let timmy = setInterval(() => {
+    let w = Math.random() * parseInt(window.screen.availWidth);
+    let h = Math.random() * parseInt(window.screen.availHeight);
+    win.resizeTo(w, h);
+  }, 1000); 
+  
+
+}
+setTimeout(() => {
+  clearInterval(timmy);
+  win.close();
+}, 6000);
+// };
+
+
+
+
+
